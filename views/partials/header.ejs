@@ -13,6 +13,12 @@
       <!-- Come back to this and crate nav bar when finalize page names and paths -->
       <a href="/">Home</a>
       <% if (user) { %>
+      
+      <h5><%= user.name %></h5> 
+      <img
+                src="<%= user.avatar %>"
+                style="border-radius: 50%; height: 60px"
+              />
       <!-- Put a tags here if you want links only logged in users can see -->
         <a href="/logout">LOG OUT</a>
       <% } else { %>
