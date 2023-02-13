@@ -1,9 +1,13 @@
 const express = require('express');
 const router = express.Router();
-
-const postsCtrl = require('../controllers/');
+const postsCtrl = require('../controllers/posts');
 	
+//All routes start with /posts
 
+//GET /posts/new
 router.get('/new', postsCtrl.new);
+
+//POST /posts
+router.post('/', postsCtrl.create);
 	
 module.exports = router;
