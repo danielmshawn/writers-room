@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html>
-  <head>
+  <head> 
     <title><%= title %></title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <link rel='stylesheet' href='/stylesheets/style.css' />   
   </head>
   <body>
 
@@ -11,22 +11,33 @@
     <nav>
       Icon.svg 
       <!-- Come back to this and crate nav bar when finalize page names and paths -->
-      <a href="/">Home</a>
+      <a href="/">HOME</a>
+        |  
       <% if (user) { %>
-      
-      <h5><%= user.name %></h5> 
-      <img
-                src="<%= user.avatar %>"
-                style="border-radius: 50%; height: 60px"
-              />
-      <!-- Put a tags here if you want links only logged in users can see -->
+        <a href="/posts">POSTS</a>
+        |  
+        <a href="/pitches">PITCHES</a>
+        |
+        <% } %>
+
+      <a href="/prompts">PROMPTS</a>
+        
+      <% if (user) { %>
+        |  
+        <a href="/new">CREATE A POST</a>
+          |  
+        <h5><%= user.name %></h5> 
+        <img
+        src="<%= user.avatar %>"
+        style="border-radius: 50%; height: 60px"
+        />
+        
         <a href="/logout">LOG OUT</a>
-      <% } else { %>
+        <% } else { %>
         <a href="/auth/google" class="login">LOG IN&nbsp;<img src="https://i.imgur.com/FHjYyi0.png"></a>
-      <% } %>
+        <% } %>
     </nav>
 
 
 
     <h1><%= title %></h1>
-    <p>Welcome to <%= title %></p>
