@@ -1,0 +1,32 @@
+<%- include('../partials/header') %>
+
+<h2>Posts</h2>
+ <table>
+   <thead>
+     <tr>
+       <th>Title</th>
+       <th>Description</th>
+       <th>Category</th>
+       <th>Content</th>
+     </tr>
+   </thead>
+   <tbody>
+     <!-- Write the line of EJS to iterate over movies using forEach -->
+     <% posts.forEach(function(p) { %>
+       <tr>
+         <td><%= p.title %></td>
+         <td><%= p.description %></td>
+         <td><%= p.category %></td>
+         <td><%= p.content %></td>
+         <!-- finish the ternary expression to display
+                       'Yes' or 'Nope' --> 
+         <td>Comments (later) </td>
+       </tr>
+     <!-- Close the forEach using EJS here -->
+     <% }); %>
+   </tbody>
+ </table>
+
+<%- include('../partials/footer') %>
+
+

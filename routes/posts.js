@@ -4,6 +4,9 @@ const postsCtrl = require('../controllers/posts');
 	
 //All routes start with /posts
 
+//GET /posts
+router.get('/', postsCtrl.index);
+
 //GET /posts/new
 router.get('/new', postsCtrl.new);
 

@@ -1,12 +1,28 @@
 const Post = require('../models/post')
 
 module.exports ={
+    index,
     new: newPost,
     create
 }
 
+function index(req, res) {
+    Post.find({}, function(err, posts) {
+        res.render('posts/index', {
+            posts,
+            title: 'Posts'
+        });
+    });
+}
+
+
 function newPost(req, res) {
-    res.render('posts/new');
+    const validCategories = Post.schema.path('category').enumValues;
+    res.render('posts/new', 
+    {
+        validCategories,
+        title: 'Create a Post'
+    });
 }
 
 function create(req, res) {

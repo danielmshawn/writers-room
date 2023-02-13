@@ -5,10 +5,14 @@ const Schema = mongoose.Schema;
 const postSchema = new Schema({
     title: String,
     description: String,
-    content: String
+    content: String,
+    category: {
+        type: String, enum: ['POST', 'PITCH', 'PROMPT']},
+    
+    },
     // Add category, and comments properties when you figure out how.
     // Are comments  Schema.Types.ObjectId? 
-}, {
+    {
     //add ability for createdAt and updatedAt fields
     timestamps: true
 });
