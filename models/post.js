@@ -7,8 +7,11 @@ const postSchema = new Schema({
     description: String,
     content: String,
     category: {
-        type: String, enum: ['POST', 'PITCH', 'PROMPT']},
-    
+        type: String, enum: ['PIECE', 'PITCH', 'PROMPT']},
+    user: {
+        type: Schema.Types.ObjectId,
+        ref: 'User'
+    }
     },
     // Add category, and comments properties when you figure out how.
     // Are comments  Schema.Types.ObjectId? 

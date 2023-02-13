@@ -14,13 +14,13 @@
       <a href="/">HOME</a>
         |  
       <% if (user) { %>
-        <a href="/posts">POSTS</a>
+        <a href="/posts?category=PIECE">PIECES</a>
         |  
-        <a href="/pitches">PITCHES</a>
+        <a href="/posts?category=PITCH">PITCHES</a>
         |
         <% } %>
 
-      <a href="/prompts">PROMPTS</a>
+      <a href="/posts?category=PROMPT">PROMPTS</a>
         
       <% if (user) { %>
         |  
