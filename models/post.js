@@ -3,11 +3,19 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const postSchema = new Schema({
-    title: String,
+    title: { 
+        type: String,
+        required: true
+    },
     description: String,
-    content: String,
+    content: { 
+        type:String,
+        required: true
+    },
     category: {
-        type: String, enum: ['PIECE', 'PITCH', 'PROMPT']},
+        type: String,
+        enum: ['PIECE', 'PITCH', 'PROMPT']
+    },
     user: {
         type: Schema.Types.ObjectId,
         ref: 'User'

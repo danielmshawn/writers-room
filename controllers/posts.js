@@ -3,6 +3,7 @@ const Post = require('../models/post')
 module.exports ={
     index,
     new: newPost,
+    show,
     create
 }
 
@@ -22,6 +23,14 @@ function newPost(req, res) {
     {
         validCategories,
         title: 'Create a Post'
+    });
+}
+
+function show(req, res) {
+    Post.findById(req.params.id, function(err, movie) {
+        res.render('posts/show', {
+             title: 'Post Details',
+             Post });
     });
 }
 
