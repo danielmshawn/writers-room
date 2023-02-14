@@ -27,10 +27,10 @@ function newPost(req, res) {
 }
 
 function show(req, res) {
-    Post.findById(req.params.id, function(err, movie) {
+    Post.findById(req.params.id, function(err, post) {
         res.render('posts/show', {
              title: 'Post Details',
-             Post });
+             post });
     });
 }
 
@@ -43,6 +43,6 @@ function create(req, res) {
     if (err) return res.redirect('/posts/new');
     console.log(post);
   // for now, redirect right back to new.ejs
-    res.redirect('/');
+    res.redirect(`/posts/${post._id}`);
 });
 }

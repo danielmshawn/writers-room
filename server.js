@@ -9,6 +9,8 @@ var methodOverride = require('method-override');
 
 var indexRouter = require('./routes/index');
 var postsRouter = require('./routes/posts');
+var commentsRouter = require('./routes/comments');
+
 require('dotenv').config();
 require('./config/database');
 require('./config/passport');
@@ -42,6 +44,9 @@ app.use(methodOverride('_method'));
 
 app.use('/', indexRouter);
 app.use('/posts', postsRouter);
+//Mounting to  root because not all routes 
+//for comments starts with /comments
+app.use('/', commentsRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

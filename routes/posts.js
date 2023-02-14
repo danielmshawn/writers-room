@@ -16,5 +16,7 @@ router.get('/:id', postsCtrl.show);
 
 //POST /posts
 router.post('/', ensureLoggedIn, postsCtrl.create);
+
+
 	
 module.exports = router;
