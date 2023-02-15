@@ -17,6 +17,7 @@ router.get('/:id', postsCtrl.show);
 //POST /posts
 router.post('/', ensureLoggedIn, postsCtrl.create);
 
+// Editing a Post - GET /posts/:id/edit
 
 	
 module.exports = router;

@@ -9,9 +9,12 @@ const commentSchema = new Schema({
     },
     user: {
         type: Schema.Types.ObjectId,
-        ref: 'User'
-},
-}, { // The options object
+        ref: 'User',
+        required: true
+    },
+    userName: String,
+    userAvatar: String
+}, { 
     timestamps: true
 
 });
@@ -32,7 +35,8 @@ const postSchema = new Schema({
     },
     user: {
         type: Schema.Types.ObjectId,
-        ref: 'User'
+        ref: 'User',
+        require: true
     },
     comments: [commentSchema] 
     },

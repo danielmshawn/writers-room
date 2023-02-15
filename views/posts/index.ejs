@@ -17,14 +17,21 @@
        <tr>
          <td><%= p.title %></td>
          <td><%= p.description %></td>
-         <!-- <td><%= p.category %></td> -->
-         <!-- <td><%= p.content %></td> -->
          <td><a href="/posts/<%= p._id %>">OPEN</a></td>
-         <!-- finish the ternary expression to display
-                       'Yes' or 'Nope' --> 
-         <td> _#_ Comments </td>
-         <!-- How do I call the username again?  -->
-         <td> Username</td>
+        
+         <td>
+          <!-- This would be the length of this particualar post's 
+          comment array how do I call that?  -->
+          _#_ Comments
+        </td>
+         <td>
+         <%= p.user.name %>
+         <img
+         src="<%= p.user.avatar %>"
+         style="border-radius: 50%; height: 60px"
+         />
+  
+        </td>
        </tr>
      <!-- Close the forEach using EJS here -->
      <% }); %>

@@ -25,3 +25,13 @@ a {
   height: 30px;
 }
 
+.comment-user {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.comment-user img {
+  border-radius: 50%;
+  height: 40px;
+}

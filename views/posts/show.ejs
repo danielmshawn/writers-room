@@ -1,17 +1,30 @@
 <%- include('../partials/header') %>
 
-<!-- Put title as H2 on top instead?  -->
 
 <section id="show-page">
+  
+
+  
 
     <div>Title: </div>
     <div><%= post.title %></div>
     <div>By: </div>
-    <div> Username here</div>
+    <div>
+      <%= post.user.name %>
+      <img
+        src="<%= post.user.avatar %>"
+        style="border-radius: 50%; height: 60px"
+        />
+    </div>
     <div>Description: </div>
     <div><%= post.description %></div>
     <div>Content: </div>
-    <div><%= post.content %></div>
+    <div><%- post.content.replaceAll('\n', '<br>') %></div>
+
+    
+    <br><br>
+      
+    
     
 </section>
 
@@ -35,11 +48,18 @@
           </tr>
         </thead>
         <tbody>
-          <% post.comments.forEach(function(p) { %>
+          <% post.comments.forEach(function(c) { %>
             <tr>
-              <td><%= p.createdAt.toLocaleDateString() %></td>
-              <td><%= p.content %></td>
-              <td>Add user here</td>
+              <td><%= c.createdAt.toLocaleDateString() %></td>
+              <td><%= c.content %></td>
+              <td class="comment-user"><img alt="avatar" src="<%= c.userAvatar %>" referrerpolicy="no-referrer" ><%= c.userName %></td>
+              <td>
+                <% if (user?._id.equals(c.user)) { %>
+                  <form action="/comments/<%= c._id %>?_method=DELETE" method="POST">
+                    <button type="'submit">X</button>
+                  </form>
+                  <% } %>
+              </td>
             </tr>
           <% }); %>
         </tbody>
@@ -49,7 +69,7 @@
 
 <h5>No comments yet. Be the first!</h5>
 
-<% } %>
+<% }; %>
 
 
 <%- include('../partials/footer') %>

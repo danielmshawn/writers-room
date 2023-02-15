@@ -7,12 +7,20 @@ module.exports ={
     create
 }
 
+// function index(req, res) {
+//     Post.find({category: req.query.category}, function(err, posts) {
+        
+//         res.render('posts/index', {
+//             posts,
+//             title: req.query.category
+//         });
+//     });
+// }
 function index(req, res) {
-    Post.find({category: req.query.category}, function(err, posts) {
-        res.render('posts/index', {
-            posts,
-            title: req.query.category
-        });
+    Post.find({category: req.query.category})
+        .populate('user')
+        .exec(function(err, posts) {
+        res.render('posts/index', { title: req.query.category, posts });
     });
 }
 
@@ -27,22 +35,27 @@ function newPost(req, res) {
 }
 
 function show(req, res) {
-    Post.findById(req.params.id, function(err, post) {
-        res.render('posts/show', {
-             title: 'Post Details',
-             post });
+    Post.findById(req.params.id)
+    .populate('user')
+    .exec(function(err, post) {
+        res.render ('posts/show', 
+        {
+            title: 'Post Details',
+            post,
+        });
     });
 }
 
 function create(req, res) {
     req.body.user = req.user._id
+    req.body.userName = req.user.name;
+    req.body.userAvatar = req.user.avatar;
     const post = new Post(req.body);
     post.save(function(err) {
-  // if we don't redirect, the new page will be shown
-  // with /movies in the address bar
+  
     if (err) return res.redirect('/posts/new');
     console.log(post);
-  // for now, redirect right back to new.ejs
+  
     res.redirect(`/posts/${post._id}`);
 });
 }
