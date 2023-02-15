@@ -73,13 +73,13 @@ function edit(req, res) {
   }
 
   function update(req, res) {
-    Post.findOneAndUpdate(
-      {_id: req.params.id},
+    Post.findOneAndUpdate({_id: req.params.id, user: req.user._id},
       // update object with updated properties
       req.body,
       // options object with new: true to make sure updated doc is returned
       {new: true},
       function(err, post) {
+        console.log('req.body', req.body);
         if (err || !post) return res.redirect('/');
         res.redirect(`/posts/${post._id}`);
       }

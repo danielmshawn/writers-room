@@ -36,13 +36,10 @@ const postSchema = new Schema({
     user: {
         type: Schema.Types.ObjectId,
         ref: 'User',
-        require: true
+        required: true
     },
     comments: [commentSchema] 
-    },
-    // Add category, and comments properties when you figure out how.
-    // Are comments  Schema.Types.ObjectId? 
-    {
+    },{
     //add ability for createdAt and updatedAt fields
     timestamps: true
 });
