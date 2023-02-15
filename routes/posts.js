@@ -14,10 +14,15 @@ router.get('/new', ensureLoggedIn, postsCtrl.new);
 //GET /posts/:id (show functionality)
 router.get('/:id', postsCtrl.show);
 
+// Editing a Post - GET /posts/:id/edit
+router.get('/:id/edit', postsCtrl.edit);
+
+
 //POST /posts
 router.post('/', ensureLoggedIn, postsCtrl.create);
 
-// Editing a Post - GET /posts/:id/edit
+// Updating a post  PUT /posts/:_id
+router.put('/:id', ensureLoggedIn, postsCtrl.update);
 
 	
 module.exports = router;
