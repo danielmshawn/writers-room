@@ -2,7 +2,7 @@
 
   # The Writer's Room
 
-  ### [CLICK HERE TO DEMO](https://dashboard.heroku.com/apps/writers-room)
+  ### [CLICK HERE TO DEMO](https://writers-room.herokuapp.com/)
   
 
   [![LinkedIn Badge](https://img.shields.io/badge/-@DanielShawnMiller-blue?style=flat&logo=Linkedin&logoColor=black)](https://www.linkedin.com/in/danielshawnmiller/)
