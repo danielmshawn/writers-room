@@ -1,8 +1,8 @@
 <%- include('../partials/header') %>
 
   <container>
-    <section id="show-post">
 
+    <section id="show-post">
 
       <div class="chainPrinter">
         <h1>
@@ -16,7 +16,7 @@
       </div>
       <div id="post-author">
         By: <%= post.user.name %>
-            <img src="<%= post.user.avatar %>" style="border-radius: 50%; height: 25px" /></h3>
+          <img src="<%= post.user.avatar %>" style="border-radius: 50%; height: 25px" /></h3>
       </div>
       <div>
         <h4>
@@ -28,20 +28,23 @@
       </div>
 
       <% if (user && user.equals(post.user)) { %>
+
         <br>
 
         <a href="/posts/<%= post._id %>/edit" id="edit">EDIT POST</a>
 
         <% } %>
 
-
     </section>
+
   </container>
 
   <container>
+
     <section id="comment-form">
 
       <% if (user) { %>
+
         <h2>Write A Comment</h2>
         <form id="comment-form" method="POST" action="/posts/<%= post._id %>/comments">
           <label>Your Comment:</label>
@@ -50,56 +53,57 @@
         </form>
 
     </section>
-    <% } else { %>
 
+    <% } else { %>
 
       <h3>Log in to comment</h3>
 
       <% } %>
 
-       
-          <% if (post.comments.length) { %>
+    </container>
 
-
-  </container>
+<% if (post.comments.length) { %>
 
   <container>
 
-  <% post.comments.forEach(function(c) { %>
+    <% post.comments.forEach(function(c) { %>
 
-    <section class="comment-section">
-    
-      <div class="comment">
-        <div class="comment-details">
-          <span class="comment-author"><img alt="avatar" src="<%= c.userAvatar %>" referrerpolicy="no-referrer"
-              style="border-radius: 50%; height: 40px">
-            <%= c.userName %>
-          </span>
-          <span class="comment-date">
-            <%= c.createdAt.toLocaleString() %>
-          </span>
+      <section class="comment-section">
+
+        <div class="comment">
+          <div class="comment-details">
+            <span class="comment-author"><img alt="avatar" src="<%= c.userAvatar %>" referrerpolicy="no-referrer"
+                style="border-radius: 50%; height: 40px">
+              <%= c.userName %>
+            </span>
+            <span class="comment-date">
+              <%= c.createdAt.toLocaleString() %>
+            </span>
+          </div>
+          <p class="comment-content">
+            <%= c.content %>
+          </p>
+
+          <% if (user?._id.equals(c.user)) { %>
+
+            <form action="/comments/<%= c._id %>?_method=DELETE" method="POST">
+              <button type="'submit">Delete Comment</button>
+            </form>
+
+            <% } %>
+
         </div>
-        <p class="comment-content">
-          <%= c.content %>
-        </p>
 
-        <% if (user?._id.equals(c.user)) { %>
-          <form action="/comments/<%= c._id %>?_method=DELETE" method="POST">
-            <button type="'submit">Delete Comment</button>
-          </form>
-          <% } %>
-      </div>
+        <% }); %>
 
-      <% }); %>
+      </section>
 
-    </section>
+      <% } else { %>
 
-    <% } else { %>
+        <h5>No comments yet. Be the first!</h5>
 
-      <h5>No comments yet. Be the first!</h5>
+        <% }; %>
 
-      <% }; %>
-       
+  </container>
 
-      </container>
-        <%- include('../partials/footer') %>
+  <%- include('../partials/footer') %>

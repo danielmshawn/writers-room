@@ -8,7 +8,7 @@ module.exports = {
 }
 
 function create(req, res) {
-    Post.findById(req.params.id, function(err, post) {
+    Post.findById(req.params.id, function (err, post) {
         // UPdating req.body to contain user info
         req.body.user = req.user._id;
         req.body.userName = req.user.name;
@@ -16,7 +16,7 @@ function create(req, res) {
 
         // Now adding the comment
         post.comments.push(req.body);
-        post.save(function(err) {
+        post.save(function (err) {
             res.redirect(`/posts/${post._id}`);
         });
     });
@@ -24,14 +24,14 @@ function create(req, res) {
 
 function deleteComment(req, res, next) {
     Post.findOne({
-        'comments._id' : req.params.id,
-        'comments.user' : req.user._id
-    }).then(function(post) {
+        'comments._id': req.params.id,
+        'comments.user': req.user._id
+    }).then(function (post) {
         if (!post) return res.redirect('/');
         post.comments.remove(req.params.id);
-        post.save().then(function() {
-            res.redirect(`/posts/${post._id}`);    
-        }).catch(function(err) {
+        post.save().then(function () {
+            res.redirect(`/posts/${post._id}`);
+        }).catch(function (err) {
             return next(err);
         });
     });

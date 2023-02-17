@@ -17,7 +17,6 @@ router.get('/:id', postsCtrl.show);
 // Editing a Post - GET /posts/:id/edit
 router.get('/:id/edit', postsCtrl.edit);
 
-
 //POST /posts
 router.post('/', ensureLoggedIn, postsCtrl.create);
 

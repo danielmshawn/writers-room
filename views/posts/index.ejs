@@ -15,15 +15,8 @@
        <tr>
          <td><%= p.title %></td>
          <td><a href="/posts/<%= p._id %>" id="open">OPEN</a></td>
-        
-         <td>
-          <!-- This would be the length of this particualar post's 
-          comment array how do I call that?  -->
-          <%= p.comments.length %>
-        </td>
-         <td>
-         <%= p.user.name %>
-        </td>
+         <td><%= p.comments.length %></td>
+         <td><%= p.user.name %></td>
        </tr>
      <!-- Close the forEach using EJS here -->
      <% }); %>

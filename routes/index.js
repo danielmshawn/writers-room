@@ -18,7 +18,7 @@ router.get('/auth/google', passport.authenticate(
     // prompt: "select_account"
   }
 ));
-  //***YOU MAY NEED TO COME BACK HERE AND READJUST REDIRECTS UPON LOGGING IN
+
   // Google OAuth callback route
 router.get('/oauth2callback', passport.authenticate(
   'google',
