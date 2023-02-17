@@ -18,53 +18,45 @@
   * **PITCHES** - Sometimes you need a brainstorming session. Got a sketch or character idea? Have a kernel of an idea, but need help expanding on it? Get into a back-and-forth with other writers and walk away with some clear and actionable next steps.
 
   * **PIECES** - Wrote a scene, but think something in it isn't working? Need another set of eyes on something after your 14th draft? This is where other writers can give you feedback on more long-form pieces of work. *It is recommended to post no more than a scene or a few pages.*
-
-
-
   </div>
 
-# Screen Shots  
-## :camera_flash: Screenshots 
 
+## :camera_flash: # Screen Shots  
   
-  | <h3>Visitor Landing Page</h3> | <img
+   <h3>Visitor Landing Page</h3>  <img
     src="https://i.imgur.com/NKACsJF.png"
     width="700"
-  /> |
-  | <h3 align="center">Profile Page</h3> | <img
-  src="https://github.com/profpan396/meet-your-classmates/raw/main/public/Screenshots/ProfilePage.png"
-  width="700"
-  /> |
+  /> 
 
-| <h3>User Landing Page</h3> | <img
+ <h3>User Landing Page</h3> | <img
     src="https://i.imgur.com/bs4BQdj.png"
     width="700"
-  /> |
+  /> 
 
-| <h3>Create A Post</h3> | <img
+ <h3>Create A Post</h3>  <img
     src="https://i.imgur.com/ZVtTD8o.png"
     width="700"
-  /> |
+  /> 
 
-  | <h3>Index View of Posts</h3> | <img
+   <h3>Index View of Posts</h3>  <img
     src="https://i.imgur.com/NKACsJF.png"
     width="700"
-  /> |
+  /> 
 
-| <h3>Post Index Page</h3> | <img
+ <h3>Post Index Page</h3>  <img
     src="https://i.imgur.com/zBR8Rx3.png"
     width="700"
-  /> |
+  /> 
 
-  | <h3>Post Details</h3> | <img
+   <h3>Post Details</h3>  <img
     src="https://i.imgur.com/4c9rorX.pngg"
     width="700"
-  /> |
+  /> 
 
-  | <h3>Comment Section</h3> | <img
+   <h3>Comment Section</h3> | <img
     src="https://i.imgur.com/Rzu2rvO.png"
     width="700"
-  /> |
+  /> 
 
 # Technologies Used
 
@@ -89,8 +81,8 @@
 
 # Next Steps
 
--Profile pages
--Ability to delete posts
--A "Like" feature that will help bring most liked comments to the top of a post
--A "Favorite" feature, so users can easily revisit bookmarked posts.
+*Profile pages
+*Ability to delete posts
+*A "Like" feature that will help bring most liked comments to the top of a post
+*A "Favorite" feature, so users can easily revisit bookmarked posts.
 
