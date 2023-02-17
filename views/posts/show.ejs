@@ -1,76 +1,105 @@
 <%- include('../partials/header') %>
 
+  <container>
+    <section id="show-post">
 
-<section id="show-page">
-  
 
-  
+      <div class="chainPrinter">
+        <h1>
+          <%= post.category %>
+        </h1>
+      </div>
+      <div class="chainprinter">
+        <h2>
+          <%= post.title %>
+        </h2>
+      </div>
+      <div id="post-author">
+        By: <%= post.user.name %>
+            <img src="<%= post.user.avatar %>" style="border-radius: 50%; height: 25px" /></h3>
+      </div>
+      <div>
+        <h4>
+          <%= post.description %>
+        </h4>
+      </div>
+      <div class="content">
+        <p><%- post.content %></p>
+      </div>
 
-    <div>Title: </div>
-    <div><%= post.title %></div>
-    <div>By: </div>
-    <div>
-      <%= post.user.name %>
-      <img
-        src="<%= post.user.avatar %>"
-        style="border-radius: 50%; height: 60px"
-        />
-    </div>
-    <div>Description: </div>
-    <div><%= post.description %></div>
-    <div>Content: </div>
-    <div><%- post.content.replaceAll('\n', '<br>') %></div>
+      <% if (user && user.equals(post.user)) { %>
+        <br>
 
+        <a href="/posts/<%= post._id %>/edit" id="edit">EDIT POST</a>
+
+        <% } %>
+
+
+    </section>
+  </container>
+
+  <container>
+    <section id="comment-form">
+
+      <% if (user) { %>
+        <h2>Write A Comment</h2>
+        <form id="comment-form" method="POST" action="/posts/<%= post._id %>/comments">
+          <label>Your Comment:</label>
+          <textarea name="content"></textarea>
+          <input type="submit" value="Add Comment">
+        </form>
+
+    </section>
+    <% } else { %>
+
+
+      <h3>Log in to comment</h3>
+
+      <% } %>
+
+       
+          <% if (post.comments.length) { %>
+
+
+  </container>
+
+  <container>
+
+  <% post.comments.forEach(function(c) { %>
+
+    <section class="comment-section">
     
-    <br><br>
-    
-    <a href="/posts/<%= post._id %>/edit">EDIT POST</a>
-    
-    
-</section>
+      <div class="comment">
+        <div class="comment-details">
+          <span class="comment-author"><img alt="avatar" src="<%= c.userAvatar %>" referrerpolicy="no-referrer"
+              style="border-radius: 50%; height: 40px">
+            <%= c.userName %>
+          </span>
+          <span class="comment-date">
+            <%= c.createdAt.toLocaleString() %>
+          </span>
+        </div>
+        <p class="comment-content">
+          <%= c.content %>
+        </p>
 
-<br><br><h2>Comments</h2>
-<form id="add-comment-form" method="POST"
-  action="/posts/<%= post._id %>/comments">
-  <label>Your Comment:</label>
-  <textarea name="content"></textarea>
-  <input type="submit" value="Add Comment">
-</form>
+        <% if (user?._id.equals(c.user)) { %>
+          <form action="/comments/<%= c._id %>?_method=DELETE" method="POST">
+            <button type="'submit">Delete Comment</button>
+          </form>
+          <% } %>
+      </div>
 
+      <% }); %>
 
-<% if (post.comments.length) { %>
-    
-    <table>
-        <thead>
-          <tr>
-            <th>Date</th>
-            <th>Comment</th>
-            <th>User</th>
-          </tr>
-        </thead>
-        <tbody>
-          <% post.comments.forEach(function(c) { %>
-            <tr>
-              <td><%= c.createdAt.toLocaleDateString() %></td>
-              <td><%= c.content %></td>
-              <td class="comment-user"><img alt="avatar" src="<%= c.userAvatar %>" referrerpolicy="no-referrer" ><%= c.userName %></td>
-              <td>
-                <% if (user?._id.equals(c.user)) { %>
-                  <form action="/comments/<%= c._id %>?_method=DELETE" method="POST">
-                    <button type="'submit">X</button>
-                  </form>
-                  <% } %>
-              </td>
-            </tr>
-          <% }); %>
-        </tbody>
-      </table>
+    </section>
 
-<% } else { %>
+    <% } else { %>
 
-<h5>No comments yet. Be the first!</h5>
+      <h5>No comments yet. Be the first!</h5>
 
-<% }; %>
+      <% }; %>
+       
 
-
-<%- include('../partials/footer') %>
+      </container>
+        <%- include('../partials/footer') %>

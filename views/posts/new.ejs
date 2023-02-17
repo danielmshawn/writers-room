@@ -1,14 +1,15 @@
 <%- include('../partials/header') %>
 
-<h2>Write away:</h2>
+<container>
 
-<form action="/posts" method="POST">
-    <label>Category:
-        <select name="category">
+<form id="new-post-form" action="/posts" method="POST">
+    <h2 class="chainprinter">New Post</h2>
+    <label class="select-category">Category:
+        <select class="select-category" name="category">
             <option disabled selected value>Select One...</option>    
-            <option value="PROMPT">PROMPT</option>
-            <option value="PITCH">PITCH</option>
-            <option value="PIECE">PIECE</option>
+            <option value="PROMPTS">PROMPT</option>
+            <option value="PITCHES">PITCH</option>
+            <option value="PIECES">PIECE</option>
         </select>
     </label>
 
@@ -16,15 +17,17 @@
         <input type="text" name="title">
     </label><br>
     
-    <label>Description:
-        <input type="text" name="description">
+    <label>Description (optional):
+        <input type="text" name="description" size="30">
     </label><br>
     
     <label>
-        <textarea name="content" rows="25" cols="80"></textarea>
+        <textarea name="content" rows="25" cols="80" placeholder="Write Away in Here..."></textarea>
     </label>
     <button type="submit">Create Post</button>
 </form>
+
+</container>
 
 
 <%- include('../partials/footer') %>

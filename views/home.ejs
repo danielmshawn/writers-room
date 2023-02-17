@@ -1,14 +1,16 @@
 <%- include('./partials/header') %>
 
+<h1><%= title %></h1>
+
 <% if (!user) { %>
 
 
-<h5>Please Login to access "Posts" and "Pitches" as well as make any posts or comments of your own</h5>
-
+<h3>Please Login to access "Posts" and "Pitches" as well as make any posts or comments of your own</h3>
+<h4>Visitors can look at Prompts. Please login to see more, create, and comment</h4>
 <% } %>
 
 <ul>
-    <li>Give feedback to other writer's <strong>POSTS</strong></li>
+    <li>Give feedback to other writer's <strong>PIECES</strong></li>
     <li>Help brainstorm with other writer's <strong>PITCHES</strong></li>
     <li>Writer's block? Get inspired by other's writing <strong>PROMPTS</strong></li>
     <li>Upload something yourself and <strong>CREATE A POST</strong></li>

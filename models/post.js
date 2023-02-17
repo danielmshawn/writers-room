@@ -26,12 +26,11 @@ const postSchema = new Schema({
     },
     description: String,
     content: { 
-        type:String,
-        required: true
+        type:String
     },
     category: {
         type: String,
-        enum: ['PIECE', 'PITCH', 'PROMPT']
+        enum: ['PIECES', 'PITCHES', 'PROMPTS']
     },
     user: {
         type: Schema.Types.ObjectId,
