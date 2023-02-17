@@ -21,14 +21,14 @@
   </div>
 
 
-## :camera_flash: # Screen Shots  
+## :camera_flash: Screen Shots  
   
    <h3>Visitor Landing Page</h3>  <img
     src="https://i.imgur.com/NKACsJF.png"
     width="700"
   /> 
 
- <h3>User Landing Page</h3> | <img
+ <h3>User Landing Page</h3>  <img
     src="https://i.imgur.com/bs4BQdj.png"
     width="700"
   /> 
@@ -53,7 +53,7 @@
     width="700"
   /> 
 
-   <h3>Comment Section</h3> | <img
+   <h3>Comment Section</h3>  <img
     src="https://i.imgur.com/Rzu2rvO.png"
     width="700"
   /> 
@@ -81,8 +81,8 @@
 
 # Next Steps
 
-*Profile pages
-*Ability to delete posts
-*A "Like" feature that will help bring most liked comments to the top of a post
-*A "Favorite" feature, so users can easily revisit bookmarked posts.
+* Profile pages
+* Ability to delete posts
+* A "Like" feature that will help bring most liked comments to the top of a post
+* A "Favorite" feature, so users can easily revisit bookmarked posts.
 
